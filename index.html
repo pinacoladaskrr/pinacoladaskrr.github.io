@@ -3,53 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Site</title>
+    <title>Animated Website</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <style>
-        body {
-            font-family: sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(45deg, #1a1a1a, #4a4a4a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
             text-align: center;
         }
 
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1em 0;
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
         }
 
-        main {
-            padding: 2em;
+        .hero p {
+            font-size: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 0.5s;
         }
 
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 1em 0;
+        .content-section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .floating-button {
             position: fixed;
-            bottom: 0;
+            bottom: 30px;
+            right: 30px;
+            background: #007bff;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .floating-button:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
             width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #007bff;
         }
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-    <header>
-        <h1>Welcome to My GitHub Pages Site!</h1>
-    </header>
+    <section class="hero" id="home">
+        <div>
+            <h1>Welcome to My Site</h1>
+            <p>Creating amazing web experiences</p>
+        </div>
+    </section>
 
-    <main>
-        <p>This is a basic HTML file for a GitHub Pages site. You can edit this file to add your own content.</p>
-        <h2>About Me</h2>
-        <p>I'm learning how to create websites with GitHub Pages.</p>
-        <p>Check out my other projects on <a href="https://github.com/your-username">GitHub</a>!</p>
-    </main>
+    <section class="content-section" id="about">
+        <div class="card" data-aos="fade-up">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 Your Name</p>
-    </footer>
+    <section class="content-section" id="services">
+        <div class="card" data-aos="fade-right">
+            <h2>Our Services</h2>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </section>
 
+    <section class="content-section" id="contact">
+        <div class="card" data-aos="fade-left">
+            <h2>Contact Us</h2>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+    </section>
+
+    <a href="#home" class="floating-button">↑</a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
