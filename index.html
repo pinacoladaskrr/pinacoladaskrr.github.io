@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Website</title>
+    <title>For Charvi</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <style>
         * {
@@ -16,16 +16,18 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
+            background-color: #fff0f5; /* Light pink background */
         }
 
         .hero {
             height: 100vh;
-            background: linear-gradient(45deg, #1a1a1a, #4a4a4a);
+            background: linear-gradient(45deg, #ff69b4, #9370db);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-align: center;
+            flex-direction: column;
         }
 
         .hero h1 {
@@ -43,6 +45,19 @@
             animation: fadeInUp 1s ease forwards 0.5s;
         }
 
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 20px 0;
+            background-color: #f8f8f8;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: popIn 1s ease forwards 1s;
+            overflow: hidden;
+        }
+
         .content-section {
             padding: 100px 20px;
             max-width: 1200px;
@@ -56,6 +71,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             margin: 20px 0;
             transition: transform 0.3s ease;
+            border-left: 5px solid #ff69b4;
         }
 
         .card:hover {
@@ -66,7 +82,7 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #007bff;
+            background: #ff69b4;
             color: white;
             width: 60px;
             height: 60px;
@@ -88,6 +104,13 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes popIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
             }
         }
 
@@ -113,14 +136,120 @@
         }
 
         .nav-links a {
-            color: #333;
+            color: #ff69b4;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #007bff;
+            color: #9370db;
+        }
+
+        /* Game styles */
+        .game-container {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            background-color: #f8f8f8;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .player {
+            width: 80px;
+            height: 80px;
+            background-color: transparent;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .rock {
+            width: 40px;
+            height: 40px;
+            background-color: #a9a9a9;
+            position: absolute;
+            border-radius: 8px;
+            top: -40px;
+            z-index: 50;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                top: 420px;
+            }
+        }
+
+        .score-display {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #ff69b4;
+        }
+
+        .game-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .game-button {
+            padding: 10px 20px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .game-button:hover {
+            background-color: #9370db;
+        }
+
+        .heart {
+            display: inline-block;
+            color: #ff69b4;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .memory {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #f8f8f8;
+            transition: transform 0.3s ease;
+        }
+        
+        .memory:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -128,37 +257,91 @@
     <nav class="navbar">
         <div class="nav-links">
             <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+            <a href="#about">About Charvi</a>
+            <a href="#reasons">Why She's Amazing</a>
+            <a href="#game">Rock Catcher Game</a>
+            <a href="#memories">Our Memories</a>
         </div>
     </nav>
 
     <section class="hero" id="home">
-        <div>
-            <h1>Welcome to My Site</h1>
-            <p>Creating amazing web experiences</p>
+        <div class="hero-image">
+            <img src="/api/placeholder/200/200" alt="Charvi" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
+        <h1>Charvi</h1>
+        <p>Charvi "the all knowing" Kagade<span class="heart">❤️</span></p>
     </section>
 
     <section class="content-section" id="about">
         <div class="card" data-aos="fade-up">
-            <h2>About Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>About Charvi</h2>
+            <p>Charvi is not just my girlfriend; she's my my confidant, and my favorite rock connoisseur. With her beautiful smile and adventurous spirit, she makes every day brighter. I created this website to celebrate everything that makes her special and to show her just how much she means to me.</p>
         </div>
     </section>
 
-    <section class="content-section" id="services">
+    <section class="content-section" id="reasons">
+        <h2 style="text-align: center; margin-bottom: 30px;">Why Charvi Is Amazing</h2>
+        
         <div class="card" data-aos="fade-right">
-            <h2>Our Services</h2>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h3>Her Unique Taste</h3>
+            <p>Charvi has the most adorable habit of chewing rock-like foods. Whether it's extra crunchy cookies or granola bars that could double as construction materials, her commitment to her unique snacking preference is both endearing and impressive!</p>
+        </div>
+        
+        <div class="card" data-aos="fade-left">
+            <h3>Her Brilliant Mind</h3>
+            <p>She's incredibly smart and always has the most insightful perspectives on everything. Conversations with her are never boring - they're filled with wit, wisdom, and wonderful ideas.</p>
+        </div>
+        
+        <div class="card" data-aos="fade-right">
+            <h3>Her Caring Heart</h3>
+            <p>Charvi has the biggest heart of anyone I know. She's always there when you need her, ready with a listening ear, a comforting hug, or words of encouragement.</p>
+        </div>
+        
+        <div class="card" data-aos="fade-left">
+            <h3>Her Radiant Smile</h3>
+            <p>Her smile lights up any room and instantly makes my day better. It's impossible to feel down when she's smiling - it's absolutely contagious!</p>
         </div>
     </section>
 
-    <section class="content-section" id="contact">
-        <div class="card" data-aos="fade-left">
-            <h2>Contact Us</h2>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    <section class="content-section" id="game">
+        <div class="card" data-aos="zoom-in">
+            <h2 style="text-align: center;">Rock Catcher Game</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Help Charvi catch all her favorite rock-like snacks! Use left and right arrow keys or the buttons below to move.</p>
+            
+            <div class="game-controls">
+                <button class="game-button" id="start-game">Start Game</button>
+                <button class="game-button" id="pause-game" disabled>Pause</button>
+            </div>
+            
+            <div class="score-display">Score: <span id="score">0</span></div>
+            
+            <div class="game-container">
+                <div class="player" id="player">
+                    <img src="/api/placeholder/80/80" alt="Charvi" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="memories">
+        <div class="card" data-aos="fade-up">
+            <h2 style="text-align: center;">Our Memories</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Just a few of the many wonderful moments we've shared together.</p>
+            
+            <div class="gallery">
+                <div class="memory">
+                    <img src="/api/placeholder/150/150" alt="Memory 1" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="memory">
+                    <img src="/api/placeholder/150/150" alt="Memory 2" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="memory">
+                    <img src="/api/placeholder/150/150" alt="Memory 3" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="memory">
+                    <img src="/api/placeholder/150/150" alt="Memory 4" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -181,6 +364,252 @@
                 navbar.classList.remove('scrolled');
             }
         });
+
+        // Game logic
+        const gameContainer = document.querySelector('.game-container');
+        const player = document.getElementById('player');
+        const scoreElement = document.getElementById('score');
+        const startButton = document.getElementById('start-game');
+        const pauseButton = document.getElementById('pause-game');
+        
+        let playerPosition = gameContainer.offsetWidth / 2 - player.offsetWidth / 2;
+        let score = 0;
+        let isGameRunning = false;
+        let gameInterval;
+        let rocks = [];
+        let rockTypes = [
+            { name: 'Granola Bar', color: '#cd853f' },
+            { name: 'Hard Cookie', color: '#d2b48c' },
+            { name: 'Jawbreaker', color: '#a9a9a9' },
+            { name: 'Rock Candy', color: '#add8e6' }
+        ];
+        
+        // Set initial player position
+        player.style.left = `${playerPosition}px`;
+        
+        // Player movement
+        document.addEventListener('keydown', (e) => {
+            if (!isGameRunning) return;
+            
+            if (e.key === 'ArrowLeft') {
+                movePlayer(-20);
+            } else if (e.key === 'ArrowRight') {
+                movePlayer(20);
+            }
+        });
+        
+        // Touch controls for mobile
+        let touchStartX = 0;
+        gameContainer.addEventListener('touchstart', (e) => {
+            if (!isGameRunning) return;
+            touchStartX = e.touches[0].clientX;
+        });
+        
+        gameContainer.addEventListener('touchmove', (e) => {
+            if (!isGameRunning) return;
+            e.preventDefault();
+            const touchX = e.touches[0].clientX;
+            const diff = touchX - touchStartX;
+            
+            if (Math.abs(diff) > 10) {
+                movePlayer(diff > 0 ? 20 : -20);
+                touchStartX = touchX;
+            }
+        });
+        
+        // Button controls
+        const leftButton = document.createElement('button');
+        leftButton.className = 'game-button';
+        leftButton.textContent = '←';
+        leftButton.addEventListener('click', () => movePlayer(-20));
+        
+        const rightButton = document.createElement('button');
+        rightButton.className = 'game-button';
+        rightButton.textContent = '→';
+        rightButton.addEventListener('click', () => movePlayer(20));
+        
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'game-controls';
+        buttonContainer.appendChild(leftButton);
+        buttonContainer.appendChild(rightButton);
+        
+        document.querySelector('.game-controls').after(buttonContainer);
+        
+        function movePlayer(delta) {
+            playerPosition += delta;
+            
+            // Keep player within bounds
+            if (playerPosition < 0) {
+                playerPosition = 0;
+            } else if (playerPosition > gameContainer.offsetWidth - player.offsetWidth) {
+                playerPosition = gameContainer.offsetWidth - player.offsetWidth;
+            }
+            
+            player.style.left = `${playerPosition}px`;
+        }
+        
+        // Start the game
+        startButton.addEventListener('click', () => {
+            if (isGameRunning) return;
+            
+            isGameRunning = true;
+            startButton.disabled = true;
+            pauseButton.disabled = false;
+            
+            score = 0;
+            scoreElement.textContent = score;
+            
+            // Clear any existing rocks
+            rocks.forEach(rock => {
+                if (rock.element.parentNode) {
+                    rock.element.parentNode.removeChild(rock.element);
+                }
+            });
+            rocks = [];
+            
+            // Start the game loop
+            gameInterval = setInterval(gameLoop, 1000);
+        });
+        
+        // Pause the game
+        pauseButton.addEventListener('click', () => {
+            isGameRunning = false;
+            startButton.disabled = false;
+            pauseButton.disabled = true;
+            clearInterval(gameInterval);
+        });
+        
+        function gameLoop() {
+            // Create a new rock
+            createRock();
+            
+            // Check for collisions - we'll rely on the requestAnimationFrame for moving rocks
+            checkCollisions();
+        }
+        
+        function createRock() {
+            const rockType = rockTypes[Math.floor(Math.random() * rockTypes.length)];
+            const rockElement = document.createElement('div');
+            rockElement.className = 'rock';
+            rockElement.style.backgroundColor = rockType.color;
+            rockElement.style.left = `${Math.random() * (gameContainer.offsetWidth - 40)}px`;
+            
+            // Random fall speed between 2 and 5 seconds
+            const fallDuration = 2 + Math.random() * 3;
+            rockElement.style.animation = `fall ${fallDuration}s linear forwards`;
+            
+            gameContainer.appendChild(rockElement);
+            
+            const rock = {
+                element: rockElement,
+                type: rockType,
+                fallDuration: fallDuration
+            };
+            
+            rocks.push(rock);
+            
+            // Remove rock after animation completes
+            setTimeout(() => {
+                if (rockElement.parentNode === gameContainer) {
+                    gameContainer.removeChild(rockElement);
+                    rocks = rocks.filter(r => r !== rock);
+                }
+            }, fallDuration * 1000);
+        }
+        
+        function moveRocks() {
+            const now = Date.now();
+            
+            if (!window.lastUpdate) {
+                window.lastUpdate = now;
+                return;
+            }
+            
+            const deltaTime = (now - window.lastUpdate) / 1000; // seconds
+            window.lastUpdate = now;
+            
+            rocks.forEach(rock => {
+                rock.top += rock.speed * deltaTime;
+                rock.element.style.top = `${rock.top}px`;
+            });
+        }
+        
+        function checkCollisions() {
+            // Get player's actual dimensions and position
+            const playerRect = player.getBoundingClientRect();
+            const containerRect = gameContainer.getBoundingClientRect();
+            
+            // Adjust coordinates to be relative to the game container
+            const adjustedPlayerRect = {
+                left: playerRect.left - containerRect.left,
+                right: playerRect.right - containerRect.left,
+                top: playerRect.top - containerRect.top,
+                bottom: playerRect.bottom - containerRect.top
+            };
+            
+            // Check each rock for collision
+            for (let i = rocks.length - 1; i >= 0; i--) {
+                const rock = rocks[i];
+                const rockElement = rock.element;
+                const rockRect = rockElement.getBoundingClientRect();
+                
+                // Adjust coordinates to be relative to the game container
+                const adjustedRockRect = {
+                    left: rockRect.left - containerRect.left,
+                    right: rockRect.right - containerRect.left,
+                    top: rockRect.top - containerRect.top,
+                    bottom: rockRect.bottom - containerRect.top
+                };
+                
+                // Check for collision
+                if (
+                    adjustedRockRect.left < adjustedPlayerRect.right &&
+                    adjustedRockRect.right > adjustedPlayerRect.left &&
+                    adjustedRockRect.top < adjustedPlayerRect.bottom &&
+                    adjustedRockRect.bottom > adjustedPlayerRect.top
+                ) {
+                    // Collision detected!
+                    score++;
+                    scoreElement.textContent = score;
+                    
+                    // Remove the rock
+                    if (rockElement.parentNode) {
+                        rockElement.parentNode.removeChild(rockElement);
+                    }
+                    rocks.splice(i, 1);
+                    
+                    // Show a little celebration
+                    const celebration = document.createElement('div');
+                    celebration.textContent = '+1';
+                    celebration.style.position = 'absolute';
+                    celebration.style.color = '#ff69b4';
+                    celebration.style.fontWeight = 'bold';
+                    celebration.style.left = `${adjustedPlayerRect.left + (adjustedPlayerRect.right - adjustedPlayerRect.left) / 2}px`;
+                    celebration.style.top = `${adjustedPlayerRect.top}px`;
+                    celebration.style.zIndex = '200';
+                    celebration.style.animation = 'fadeInUp 0.5s ease forwards';
+                    
+                    gameContainer.appendChild(celebration);
+                    
+                    setTimeout(() => {
+                        if (celebration.parentNode) {
+                            celebration.parentNode.removeChild(celebration);
+                        }
+                    }, 500);
+                }
+            }
+        }
+        
+        // Set up animation frame for smooth movement
+        function gameUpdate() {
+            if (isGameRunning) {
+                checkCollisions();
+            }
+            requestAnimationFrame(gameUpdate);
+        }
+        
+        // Start the game update loop right away
+        requestAnimationFrame(gameUpdate);
     </script>
 </body>
 </html>
